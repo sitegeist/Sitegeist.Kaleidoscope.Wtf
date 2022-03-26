@@ -1,0 +1,20 @@
+{
+    "description": "Tools to better understand the Sitegeist.Kaleidoscope image rendering",
+    "type": "neos-package",
+    "name": "sitegeist/kaleidoscope-wtf",
+    "license": "GPL-3.0-or-later",
+    "require": {
+        "neos/flow": "*",
+        "sitegeist/kaleidoscope": "~5.0 || dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sitegeist\\Kaleidoscope\\Wtf\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Sitegeist.Kaleidoscope.Wtf"
+        }
+    }
+}

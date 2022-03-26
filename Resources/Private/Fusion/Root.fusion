@@ -1,0 +1,37 @@
+prototype(Sitegeist.Kaleidoscope:Image) {
+    imageSource.@process.enforceDummyImage = Sitegeist.Kaleidoscope.Wtf:DummyImageEnforcingProcessor
+    imageSource.@process.enforceDummyImage.@position = 'end'
+}
+
+prototype(Sitegeist.Kaleidoscope:Picture) {
+    imageSource.@process.enforceDummyImage = Sitegeist.Kaleidoscope.Wtf:DummyImageEnforcingProcessor
+    imageSource.@process.enforceDummyImage.@position = 'end'
+}
+
+prototype(Sitegeist.Kaleidoscope:Source) {
+    imageSource.@process.enforceDummyImage = Sitegeist.Kaleidoscope.Wtf:DummyImageEnforcingProcessor
+    imageSource.@process.enforceDummyImage.@position = 'end'
+}
+
+prototype(Sitegeist.Lazybones:Image) {
+    imageSource.@process.enforceDummyImage = Sitegeist.Kaleidoscope.Wtf:DummyImageEnforcingProcessor
+    imageSource.@process.enforceDummyImage.@position = 'end'
+}
+
+prototype(Sitegeist.Lazybones:Picture) {
+    imageSource.@process.enforceDummyImage = Sitegeist.Kaleidoscope.Wtf:DummyImageEnforcingProcessor
+    imageSource.@process.enforceDummyImage.@position = 'end'
+}
+
+prototype(Sitegeist.Kaleidoscope.Wtf:DummyImageEnforcingProcessor) < prototype(Neos.Fusion:Value) {
+    @if.isEnabled = ${Configuration.setting("Sitegeist.Kaleidoscope.Wtf.enforceDummyImages")}
+    @if.hasImageSource = ${Type.instance(value, 'Sitegeist\\Kaleidoscope\\EelHelpers\\ImageSourceHelperInterface') || Type.instance(value, 'Sitegeist\\Kaleidoscope\\Domain\\ImageSourceInterface')}
+    @if.noDummyImageSource = ${!Type.instance(value, 'Sitegeist\\Kaleidoscope\\EelHelpers\\DummyImageSource') || !Type.instance(value, 'Sitegeist\\Kaleidoscope\\Domain\\DummyImageSource')}
+
+    value = Sitegeist.Kaleidoscope:DummyImageSource {
+        baseWidth = ${value.width || value.currentWidth || 600}
+        baseHeight = ${value.height || value.currentHeight || 400}
+        alt = ${value.alt}
+        title = ${value.title}
+    }
+}
