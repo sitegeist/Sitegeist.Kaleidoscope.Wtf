@@ -3,7 +3,7 @@
 ## Tools to better understand the Sitegeist.Kaleidoscope image rendering
 
 This package adds a debug mode for Sitegeist.Kaleidoscope that replaces all
-imagesSources in with DummyImageSources while preserving existing Dimensions.
+imagesSources in with DummyImageSources while preserving existing dimensions.
 
 That way the resulting image rendering and the chosen sizes can be evaluated 
 without the Sitegeist.Monocle styleguide any by using the same rendering pathes 
